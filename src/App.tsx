@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BottomNavigationBar from "./components/BottomNavigationBar";
+
+import HomePage from "./pages/HomePage";
+import SearchPage from "./pages/SearchPage";
+import PlayListPage from "./pages/PlayListPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      음악 앱
-    </div>
-  )
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/playlist" element={<PlayListPage />} />
+        </Routes>
+        <BottomNavigationBar />
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
